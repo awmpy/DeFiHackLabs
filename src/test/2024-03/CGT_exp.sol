@@ -127,7 +127,7 @@ contract ContractTest is Test {
     Spell spell;
 
     function setUp() external {
-        cheats.createSelectFork("mainnet", 19_498_910);
+        cheats.createSelectFork("https://eth.drpc.org", 19_498_910);
         deal(address(cgt), address(this), 80 ether);
     }
 

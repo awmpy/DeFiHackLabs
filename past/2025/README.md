@@ -2,6 +2,109 @@
 
 ## 2025 - List of Past DeFi Incidents
 
+### 20250325 Abracadabra - Stale GMX Order Phantom Collateral
+
+### Lost: 13M USD
+
+```sh
+forge test --contracts ./src/test/2025-03/AbracadabraMarch_exp.sol -vv
+```
+
+#### Contract
+[AbracadabraMarch_exp.sol](../../src/test/2025-03/AbracadabraMarch_exp.sol)
+
+### Link reference
+
+https://smartcontractshacking.com/hacks/abracadabra-spell-hack-2025-101
+
+---
+
+### 20250810 numa. - Flash Loan Total Supply Price Manipulation
+
+### Lost: 320K USD
+
+```sh
+forge test --contracts ./src/test/2025-08/Numa_exp.sol -vv
+```
+
+#### Contract
+[Numa_exp.sol](../../src/test/2025-08/Numa_exp.sol)
+
+### Link reference
+
+https://smartcontractshacking.com/hacks/numa-hack-2025
+
+---
+
+### 20250825 Panoptic V1.1 - XOR Position Fingerprint Collision
+
+### Lost: No user loss; whitehat rescue
+
+```sh
+forge test --contracts ./src/test/2025-08/PanopticV1_1_exp.sol --evm-version cancun -vv
+```
+
+#### Contract
+[PanopticV1_1_exp.sol](../../src/test/2025-08/PanopticV1_1_exp.sol)
+
+### Link reference
+
+https://panoptic.xyz/blog/position-spoofing-post-mortem
+
+---
+
+### 20250830 Cozy V2 - Missing Caller Verification
+
+### Lost: 427K USD
+
+```sh
+forge test --contracts ./src/test/2025-08/CozyV2_exp.sol -vv
+```
+
+#### Contract
+[CozyV2_exp.sol](../../src/test/2025-08/CozyV2_exp.sol)
+
+### Link reference
+
+https://smartcontractshacking.com/hacks/cozy-finance-hack-2025
+
+---
+
+### 20250826 BetterBank - Rogue LP Bonus Minting
+
+### Lost: 5M USD
+
+```sh
+forge test --contracts ./src/test/2025-08/BetterBank_exp.sol -vv
+```
+
+#### Contract
+[BetterBank_exp.sol](../../src/test/2025-08/BetterBank_exp.sol)
+
+### Link reference
+
+https://smartcontractshacking.com/hacks/betterbank-hack-2025
+---
+
+### 20251228 MSCST - Atomic Sandwich releaseReward
+
+### Lost: ~$129.9K USD
+
+```sh
+forge test --contracts ./src/test/2025-12/MSCST_exp.sol --match-test testExploit --evm-version cancun -vv
+```
+
+#### Contract
+[MSCST_exp.sol](../../src/test/2025-12/MSCST_exp.sol)
+
+### Link reference
+
+https://x.com/hklst4r/status/2005515461773885670
+
+https://smartcontractshacking.com/hacks/mscst-hack-2025
+
+---
+
 ### 20251201 yETH - Unsafe Math
 
 ### Lost: 9M USD
@@ -32,8 +135,6 @@ forge test --contracts ./src/test/2025-11/DRLVaultV3_exp.sol -vvv
 ### Link reference
 
 https://blog.verichains.io/p/the-drlvaultv3-exploit-a-slippage
-
----
 
 ### 20251104 Moonwell - Faulty Oracle
 
@@ -89,6 +190,25 @@ forge test --contracts ./src/test/2025-10/SharwaFinance_exp.sol -vvv
 ### Link reference
 
 https://x.com/phalcon_xyz/status/1980219745480946087?s=46
+
+---
+
+### 20251009 Astera.fi - Liquidity Index Inflation
+
+### Lost: ~$821K USD
+
+```sh
+forge test --contracts ./src/test/2025-10/AsteraFi_exp.sol --match-test testExploit --evm-version cancun -vv
+```
+
+#### Contract
+[AsteraFi_exp.sol](../../src/test/2025-10/AsteraFi_exp.sol)
+
+### Link reference
+
+https://x.com/hklst4r/status/1976296543872233508
+
+https://smartcontractshacking.com/hacks/astera-fi-hack-2025
 
 ---
 
@@ -165,6 +285,23 @@ forge test --contracts ./src/test/2025-09/Kame_exp.sol -vvv
 ### Link reference
 
 https://x.com/SupremacyHQ/status/1966909841483636849
+
+---
+
+### 20250902 Bunni V2 - Liquidity Distribution Function Exploit
+
+### Lost: 8.4M USD
+
+```sh
+forge test -C src/test/2025-09 --match-path ./src/test/2025-09/BunniV2_exp.sol --evm-version cancun -vv
+```
+
+#### Contract
+[BunniV2_exp.sol](../../src/test/2025-09/BunniV2_exp.sol)
+
+### Link reference
+
+https://x.com/Bunni_xyz/status/1961503177058902114
 
 ---
 
@@ -487,6 +624,21 @@ https://t.me/evmhacks/78?single
 
 ---
 
+### 20250715 Arcadia V2 - Unvalidated Rebalancer Router
+
+### Lost: ~2.5M USD
+
+```sh
+forge test -C src/test/2025-07 --match-path ./src/test/2025-07/ArcadiaV2_exp.sol --via-ir --evm-version cancun -vv
+```
+#### Contract
+[ArcadiaV2_exp.sol](../../src/test/2025-07/ArcadiaV2_exp.sol)
+### Link reference
+
+https://basescan.org/tx/0x06ce76eae6c12073df4aaf0b4231f951e4153a67f3abc1c1a547eb57d1218150
+
+---
+
 
 ### 20250716 VDS - Logic Flaw
 
@@ -602,6 +754,42 @@ forge test --contracts ./src/test/2025-06/ResupplyFi_exp.sol -vvv
 ### Link reference
 
 https://x.com/ResupplyFi/status/1938927974272938420
+
+---
+
+### 20250625 Silo Finance - Arbitrary Call
+
+### Lost: 545K USD
+
+```sh
+forge test --contracts ./src/test/2025-06/SiloFinance_exp.sol --evm-version cancun -vv
+```
+
+#### Contract
+
+[SiloFinance_exp.sol](../../src/test/2025-06/SiloFinance_exp.sol)
+
+### Link reference
+
+https://smartcontractshacking.com/hacks/silo-finance-hack-2025
+
+---
+
+### 20250415 KiloEx - Forwarder Signature Reuse
+
+### Lost: 7.5M USD
+
+```sh
+forge test --contracts ./src/test/2025-04/KiloEx_exp.sol -vv
+```
+
+#### Contract
+
+[KiloEx_exp.sol](../../src/test/2025-04/KiloEx_exp.sol)
+
+### Link reference
+
+https://smartcontractshacking.com/hacks/kiloex-hack-2025
 
 ---
 
@@ -763,6 +951,23 @@ forge test --contracts ./src/test/2025-05/UsualMoney_exp.sol -vvv
 ### Link reference
 
 https://x.com/BlockSecTeam/status/1927601457815040283
+
+---
+
+### 20250526 Dexodus Finance - Signed Oracle Report Price Gap
+
+### Lost: 300K USD
+
+```sh
+forge test -C src/test/2025-05 --match-path ./src/test/2025-05/Dexodus_exp.sol --via-ir --evm-version cancun -vv
+```
+
+#### Contract
+[Dexodus_exp.sol](../../src/test/2025-05/Dexodus_exp.sol)
+
+### Link reference
+
+https://smartcontractshacking.com/hacks/dexodus-hack-2025
 
 ---
 

@@ -2,7 +2,7 @@
 
 ## 2023 - List of Past DeFi Incidents
 
-214 incidents included.
+217 incidents included.
 
 [20231231 Channels BUSD&USDC](#20231231-channels---price-manipulation)
 
@@ -170,6 +170,8 @@
 
 [20230902 DAppSocial](#20230902-dappsocial---business-logic-flaw)
 
+[20230901 SharedStake](#20230901-sharedstake---missing-access-control)
+
 [20230829 EAC](#20230829-eac---price-manipulation)
 
 [20230827 Balancer](#20230827-balancer---rounding-error--business-logic-flaw)
@@ -276,6 +278,8 @@
 
 [20230615 DEPUSDT_LEVUSDC](#20230615-depusdt_levusdc---incorrect-access-control)
 
+[20230614 Tropykus RSK](#20230614-tropykus-rsk---redeem-rounding-error)
+
 [20230612 Sturdy Finance](#20230612-sturdy-finance---read-only-reentrancy)
 
 [20230611 SellToken04](#20230611-sellToken04---Price-Manipulation)
@@ -368,6 +372,8 @@
 
 [20230322 BIGFI](#20230322---bigfi---reflection-token)
 
+[20230318 Zircon Gamma](#20230318-zircon-gamma---flashloan-pool-shares-exploit)
+
 [20230317 ParaSpace NFT](#20230317---paraspace-nft---flashloan--scaledbalanceof-manipulation)
 
 [20230315 Poolz](#20230315---poolz---integer-overflow)
@@ -377,6 +383,8 @@
 [20230308 DKP](#20230308---dkp---flashloan-price-manipulation)
 
 [20230307 Phoenix](#20230307---phoenix---access-control--arbitrary-external-call)
+
+[20230307 Tender Finance](#20230307-tender-finance---outdated-oracle)
 
 [20230227 LaunchZone](#20230227---launchzone---access-control)
 
@@ -4848,3 +4856,83 @@ forge test --contracts ./src/test/2023-01/GDS_exp.sol -vvv
 https://twitter.com/peckshield/status/1610095490368180224
 
 https://twitter.com/BlockSecTeam/status/1610167174978760704
+
+---
+
+### 20230901 SharedStake - Missing Access Control
+
+### Lost: ~$175k
+
+Testing
+
+```sh
+forge test --contracts ./src/test/2023-09/SharedStake_exp.sol -vvv
+```
+
+#### Contract
+
+[SharedStake_exp.sol](../../src/test/2023-09/SharedStake_exp.sol)
+
+#### Link reference
+
+https://twitter.com/spreekaway/status/1697612239929246022
+
+---
+
+### 20230614 Tropykus RSK - Redeem Rounding Error
+
+### Lost: ~$150k
+
+Testing
+
+```sh
+forge test --contracts ./src/test/2023-06/Tropykus_exp.sol -vvv
+```
+
+#### Contract
+
+[Tropykus_exp.sol](../../src/test/2023-06/Tropykus_exp.sol)
+
+#### Link reference
+
+https://twitter.com/tropykus/status/1669310852787216385
+
+---
+
+### 20230318 Zircon Gamma - Flashloan Pool Shares Exploit
+
+### Lost: ~$350k
+
+Testing
+
+```sh
+forge test --contracts ./src/test/2023-03/ZirconGamma_exp.sol -vvv
+```
+
+#### Contract
+
+[ZirconGamma_exp.sol](../../src/test/2023-03/ZirconGamma_exp.sol)
+
+#### Link reference
+
+https://twitter.com/Zircon_Finance/status/1637093661321183233
+
+---
+
+### 20230307 Tender Finance - Outdated Oracle
+
+### Lost: ~$1.6m
+
+Testing
+
+```sh
+forge test --contracts ./src/test/2023-03/TenderFinance_exp.sol -vvv
+```
+
+#### Contract
+
+[TenderFinance_exp.sol](../../src/test/2023-03/TenderFinance_exp.sol)
+
+#### Link reference
+
+https://twitter.com/tender_fi/status/1633170112718188549

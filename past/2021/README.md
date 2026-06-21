@@ -2,7 +2,7 @@
 
 ## Before 2021 - List of Past DeFi Incidents
 
-49 incidents included.
+68 incidents included.
 
 [20211221 Visor Finance](#20211221-visor-finance---reentrancy)
 
@@ -14,9 +14,13 @@
 
 [20211123 Ploutoz Finance](#20211123-ploutoz---flash-loan)
 
+[20211103 Vesper Finance](#20211103-vesper-finance---uniswap-v3-twap-oracle-manipulation)
+
 [20211027 Cream Finance](#20211027-creamfinance---price-manipulation)
 
 [20211015 Indexed Finance](#20211015-indexed-finance---price-manipulation)
+
+[20210921 Vee Finance](#20210921-vee-finance---low-liquidity-price-manipulation)
 
 [20210916 SushiSwap Miso](#20210916-sushiswap-miso)
 
@@ -30,6 +34,8 @@
 
 [20210830 Cream Finance](#20210830-cream-finance---flashloan-attack--reentrancy)
 
+[20210829 xToken](#20210829-xtoken---missing-caller-validation)
+
 [20210817 XSURGE](#20210817-xsurge---flashloan-attack--reentrancy)
 
 [20210811 Poly Network](#20210811-poly-network---bridge-getting-around-modifier-through-cross-chain-message)
@@ -39,6 +45,10 @@
 [20210804 Popsicle](#20210804-popsicle---repeated-reward-claim---logic-flaw)
 
 [20210728 Levyathan Finance](#20210728-levyathan-finance---i-lost-keys-and-minting-ii-vulnerable-emergencywithdraw)
+
+[20210716 PolyBunny](#20210716-polybunny---flashloan-incentive-rewards-exploit)
+
+[20210714 ApeRocket](#20210714-aperocket---flashloan-incentive-rewards-exploit)
 
 [20210710 Chainswap](#20210710-chainswap---bridge-logic-flaw)
 
@@ -54,9 +64,17 @@
 
 [20210603 PancakeHunny](#20210603-pancakehunny---incorrect-calculation)
 
+[20210529 Belt Finance](#20210529-belt-finance---vault-share-price-manipulation)
+
 [20210527 JulSwap](#20210527-julswap---flash-loan)
 
 [20210527 BurgerSwap](#20210527-burgerswap---mathematical-flaw--reentrancy)
+
+[20210526 Merlin Labs](#20210526-merlin-labs---reward-calculation-error)
+
+[20210524 AutoShark](#20210524-autoshark---price-oracle-manipulation)
+
+[20210512 xToken](#20210512-xtoken---arbitrary-bancor-mint-path)
 
 [20210519 PancakeBunny](#20210519-pancakebunny---price-oracle-manipulation)
 
@@ -74,15 +92,31 @@
 
 [20210305 Paid Network](#20210305-paid-network---private-key-compromised)
 
+[20210227 Furucombo](#20210227-furucombo---delegatecall-exploit)
+
+[20210213 Alpha Finance](#20210213-alpha-finance---debt-share-rounding)
+
+[20210209 Growth DeFi](#20210209-growth-defi---fake-pair-validation)
+
 [20210204 Yearn YDai](#20210204-yearn-ydai---Slippage-proection-absent)
 
 [20210125 Sushi Badger Digg](#20210125-sushi-badger-digg---sandwich-attack)
 
 [20201229 Cover Protocol](#20201229-cover-protocol)
 
+[20201218 Warp Protocol](#20201218-warp-protocol---price-oracle-manipulation)
+
 [20201121 Pickle Finance](#20201121-pickle-finance)
 
+[20201117 Origin Dollar](#20201117-origin-dollar---reentrancy)
+
+[20201114 Value DeFi](#20201114-value-defi---price-oracle-manipulation)
+
+[20201112 Akropolis](#20201112-akropolis---fake-token-reentrancy)
+
 [20201026 Harvest Finance](#20201026-harvest-finance---flashloan-attack)
+
+[20200928 Eminence](#20200928-eminence---bonding-curve-manipulation)
 
 [20200912 bzx](#20200912-bzx---incorrect-transfer)
 
@@ -105,6 +139,54 @@
 [20171106 Parity - 'Accidentally Killed It'](#20171106-parity---accidentally-killed-it)
 
 [20170719 Parity Multisig](#20170719-parity-multisig---delegatecall-to-unprotected-initwallet)
+
+### 20210829 xToken - Missing Caller Validation
+
+#### Lost: $4.5 million
+
+```sh
+forge test --contracts ./src/test/2021-08/xToken_exp.sol --match-contract XTokenExploitTest -vv
+```
+
+[xToken_exp.sol](../../src/test/2021-08/xToken_exp.sol)
+
+---
+
+### 20210512 xToken - Arbitrary Bancor Mint Path
+
+#### Lost: $24 million
+
+```sh
+forge test --contracts ./src/test/2021-05/xToken_exp.sol --match-contract XTokenMayExploitTest -vv
+```
+
+[xToken_exp.sol](../../src/test/2021-05/xToken_exp.sol)
+
+---
+
+### 20210213 Alpha Finance - Debt Share Rounding
+
+#### Lost: $37.5 million
+
+```sh
+forge test --contracts ./src/test/2021-02/AlphaFinance_exp.sol --match-contract AlphaFinanceExploitTest -vv
+```
+
+[AlphaFinance_exp.sol](../../src/test/2021-02/AlphaFinance_exp.sol)
+
+---
+
+### 20210209 Growth DeFi - Fake Pair Validation
+
+#### Lost: $1.3 million
+
+```sh
+forge test --contracts ./src/test/2021-02/GrowthDeFi_exp.sol --match-contract GrowthDeFiExploitTest -vv
+```
+
+[GrowthDeFi_exp.sol](../../src/test/2021-02/GrowthDeFi_exp.sol)
+
+---
 
 ### 20211221 Visor Finance - Reentrancy
 
@@ -221,6 +303,26 @@ https://x.com/peckshield/status/1463113809111896065
 
 ---
 
+### 20211103 Vesper Finance - Uniswap V3 TWAP Oracle Manipulation
+
+#### Lost: ~$3.4M
+
+```sh
+forge test --contracts ./src/test/2021-11/VesperFinance_exp.sol --match-contract VesperFinanceExploitTest -vv
+```
+
+#### Contract
+
+[VesperFinance_exp.sol](../../src/test/2021-11/VesperFinance_exp.sol)
+
+#### Link reference
+
+https://etherscan.io/tx/0x89d0ae4dc1743598a540c4e33917efdce24338723b0fabf34813b79cb0ecf4c5
+
+https://etherscan.io/tx/0x8527fea51233974a431c92c4d3c58dee118b05a3140a04e0f95147df9faf8092
+
+---
+
 ### 20211027 CreamFinance - Price Manipulation
 
 #### Lost: $130M
@@ -258,6 +360,24 @@ forge test --contracts src/test/2021-10/IndexedFinance_exp.sol -vv
 #### Link reference
 
 https://blocksecteam.medium.com/the-analysis-of-indexed-finance-security-incident-8a62b9799836
+
+---
+
+### 20210921 Vee Finance - Low Liquidity Price Manipulation
+
+#### Lost: ~$34M
+
+```sh
+forge test --contracts ./src/test/2021-09/VeeFinance_exp.sol --match-contract VeeFinanceExploitTest -vv
+```
+
+#### Contract
+
+[VeeFinance_exp.sol](../../src/test/2021-09/VeeFinance_exp.sol)
+
+#### Link reference
+
+https://snowtrace.io/tx/0x3f7159110d3204363821fb6bc4490d4f9ca76e8a6869462474f8b0336c7eb582
 
 ---
 
@@ -505,6 +625,42 @@ https://levyathan-index.medium.com/post-mortem-levyathan-c3ff7f9a6f65
 
 ---
 
+### 20210716 PolyBunny - Flashloan Incentive Rewards Exploit
+
+#### Lost: ~$2.4M
+
+```sh
+forge test --contracts ./src/test/2021-07/PolyBunny_exp.sol --match-contract PolyBunnyExploitTest -vv
+```
+
+#### Contract
+
+[PolyBunny_exp.sol](../../src/test/2021-07/PolyBunny_exp.sol)
+
+#### Link reference
+
+https://polygonscan.com/tx/0x25e5d9ea359be7fc50358d18c2b6d429d27620fe665a99ba7ad0ea460e50ae55
+
+---
+
+### 20210714 ApeRocket - Flashloan Incentive Rewards Exploit
+
+#### Lost: ~$1.26M
+
+```sh
+forge test --contracts ./src/test/2021-07/ApeRocket_exp.sol --match-contract ApeRocketExploitTest -vv
+```
+
+#### Contract
+
+[ApeRocket_exp.sol](../../src/test/2021-07/ApeRocket_exp.sol)
+
+#### Link reference
+
+https://bscscan.com/tx/0x701a308fba23f9b328d2cdb6c7b245f6c3063a510e0d5bc21d2477c9084f93e0
+
+---
+
 ### 20210710 Chainswap - Bridge, logic flaw
 
 #### Lost: $4.4 million
@@ -647,6 +803,24 @@ https://bscscan.com/tx/0x765de8357994a206bb90af57dcf427f48a2021f2f28ca81f2c00bc3
 
 ---
 
+### 20210529 Belt Finance - Vault Share Price Manipulation
+
+#### Lost: ~$6.3M
+
+```sh
+forge test --contracts ./src/test/2021-05/BeltFinance_exp.sol --match-contract BeltFinanceExploitTest -vv
+```
+
+#### Contract
+
+[BeltFinance_exp.sol](../../src/test/2021-05/BeltFinance_exp.sol)
+
+#### Link reference
+
+https://bscscan.com/tx/0x50b0c05dd326022cae774623e5db17d8edbc41b4f064a3bcae105f69492ceadc
+
+---
+
 ### 20210527 JulSwap - Flash Loan
 
 ### Lost: 1.5M
@@ -680,6 +854,42 @@ forge test --contracts src/test/2021-05/BurgerSwap_exp.sol -vv
 #### Link reference
 
 https://twitter.com/Mudit__Gupta/status/1398156036574306304
+
+---
+
+### 20210526 Merlin Labs - Reward Calculation Error
+
+#### Lost: ~$550K
+
+```sh
+forge test --contracts ./src/test/2021-05/Merlin_exp.sol --match-contract MerlinExploitTest -vv
+```
+
+#### Contract
+
+[Merlin_exp.sol](../../src/test/2021-05/Merlin_exp.sol)
+
+#### Link reference
+
+https://bscscan.com/tx/0x31fdf621f60684579de00f30b33fa051c19f1fd45d891c817e2a3888a9b75726
+
+---
+
+### 20210524 AutoShark - Price Oracle Manipulation
+
+#### Lost: $745K
+
+```sh
+forge test --contracts ./src/test/2021-05/AutoShark_exp.sol --match-contract AutoSharkExploitTest -vv
+```
+
+#### Contract
+
+[AutoShark_exp.sol](../../src/test/2021-05/AutoShark_exp.sol)
+
+#### Link reference
+
+https://bscscan.com/tx/0xfbe65ad3eed6b28d59bf6043debf1166d3420d214020ef54f12d2e0583a66f13
 
 ---
 
@@ -883,6 +1093,24 @@ https://etherscan.io/tx/0x4bb10927ea7afc2336033574b74ebd6f73ef35ac0db1bb96229627
 
 ---
 
+### 20210227 Furucombo - Delegatecall Exploit
+
+#### Lost: $14 million
+
+```sh
+forge test --contracts ./src/test/2021-02/Furucombo_exp.sol --match-contract FurucomboExploitTest -vv
+```
+
+#### Contract
+
+[Furucombo_exp.sol](../../src/test/2021-02/Furucombo_exp.sol)
+
+#### Link reference
+
+https://etherscan.io/tx/0x8bf64bd802d039d03c63bf3614afc042f345e158ea0814c74be4b5b14436afb9
+
+---
+
 ### 20210204 Yearn YDai - Slippage proection absent
 
 #### Lost: 11 Million $
@@ -945,6 +1173,24 @@ https://slowmist.medium.com/a-brief-analysis-of-the-cover-protocol-hacked-event-
 
 ---
 
+### 20201218 Warp Protocol - Price Oracle Manipulation
+
+#### Lost: $7.8 million
+
+```sh
+forge test --contracts ./src/test/2020-12 --match-contract WarpFinanceExploitTest -vv
+```
+
+#### Contract
+
+[WarpFinance_exp.sol](../../src/test/2020-12/WarpFinance_exp.sol)
+
+#### Link reference
+
+https://etherscan.io/tx/0x8bb8dc5c7c830bac85fa48acad2505e9300a91c3ff239c9517d0cae33b595090
+
+---
+
 ### 20201121 Pickle Finance - Insufficient validation
 
 #### Lost: $20 million
@@ -964,6 +1210,60 @@ forge test --contracts ./src/test/2020-11/Pickle_exp.sol -vv
 https://github.com/banteg/evil-jar
 
 https://etherscan.io/tx/0xe72d4e7ba9b5af0cf2a8cfb1e30fd9f388df0ab3da79790be842bfbed11087b0
+
+---
+
+### 20201117 Origin Dollar - Reentrancy
+
+#### Lost: $8 million
+
+```sh
+forge test --contracts ./src/test/2020-11 --match-contract OriginDollarExploitTest -vv
+```
+
+#### Contract
+
+[OriginDollar_exp.sol](../../src/test/2020-11/OriginDollar_exp.sol)
+
+#### Link reference
+
+https://etherscan.io/tx/0xe1c76241dda7c5fcf1988454c621142495640e708e3f8377982f55f8cf2a8401
+
+---
+
+### 20201114 Value DeFi - Price Oracle Manipulation
+
+#### Lost: $7 million
+
+```sh
+forge test --contracts ./src/test/2020-11 --match-contract ValueDeFiExploitTest -vv
+```
+
+#### Contract
+
+[ValueDeFi_exp.sol](../../src/test/2020-11/ValueDeFi_exp.sol)
+
+#### Link reference
+
+https://etherscan.io/tx/0x46a03488247425f845e444b9c10b52ba3c14927c687d38287c0faddc7471150a
+
+---
+
+### 20201112 Akropolis - Fake Token Reentrancy
+
+#### Lost: $2 million
+
+```sh
+forge test --contracts ./src/test/2020-11 --match-contract AkropolisExploitTest -vv
+```
+
+#### Contract
+
+[Akropolis_exp.sol](../../src/test/2020-11/Akropolis_exp.sol)
+
+#### Link reference
+
+https://etherscan.io/tx/0x270836213a621d9f43159439065ddeb54cb9a69fec07fbb63d7f22edd9be5103
 
 ---
 
@@ -987,6 +1287,26 @@ forge test --contracts ./src/test/2020-10/HarvestFinance_exp.sol -vv
 https://rekt.news/harvest-finance-rekt/
 
 https://etherscan.io/tx/0x35f8d2f572fceaac9288e5d462117850ef2694786992a8c3f6d02612277b0877
+
+---
+
+### 20200928 Eminence - Bonding Curve Manipulation
+
+#### Lost: $15 million
+
+```sh
+forge test --contracts ./src/test/2020-09 --match-contract EminenceExploitTest -vv
+```
+
+#### Contract
+
+[Eminence_exp.sol](../../src/test/2020-09/Eminence_exp.sol)
+
+#### Link reference
+
+https://etherscan.io/tx/0x3503253131644dd9f52802d071de74e456570374d586ddd640159cf6fb9b8ad8
+
+---
 
 ### 20200804 Opyn Protocol - msgValue in loop
 

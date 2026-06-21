@@ -2,7 +2,7 @@
 
 ## 2022 - List of Past DeFi Incidents
 
-129 incidents included.
+133 incidents included.
 
 [20221230 DFS](#20221230---dfs---insufficient-validation--flashloan)
 
@@ -112,6 +112,8 @@
 
 [20221006 RES-Token](#20221006-RES-Token---pair-manipulate)
 
+[20221004 Sovryn](#20221004-sovryn---cross-contract-erc777-reentrancy)
+
 [20221002 Transit Swap](#20221002-transit-swap---incorrect-owner-address-validation)
 
 [20221001 BabySwap](#20221001-babyswap---parameter-access-control)
@@ -198,6 +200,8 @@
 
 [20220517 ApeCoin](#20220517-apecoin-ape---flashloan)
 
+[20220513 Blizz Finance](#20220513-blizz-finance---outdated-luna-oracle)
+
 [20220508 Fortress Loans](#20220508-fortress-loans---malicious-proposal--price-oracle-manipulation)
 
 [20220430 Saddle Finance](#20220430-saddle-finance---swap-metapool-attack)
@@ -221,6 +225,10 @@
 [20220411 Creat Future](#20220411-creat-future)
 
 [20220409 GYMNetwork](#20220409-gymnetwork---flashloan--token-migrate-flaw)
+
+[20220402 Inverse Finance Frontier](#20220402-inverse-finance-frontier---price-oracle-manipulation)
+
+[20220331 Ola Finance](#20220331-ola-finance---erc677-cross-market-reentrancy)
 
 [20220329 Ronin Network](#20220329-ronin-network---Bridge)
 
@@ -253,6 +261,8 @@
 [20220214 BuildFinance - DAO](#20220214-buildfinance---dao)
 
 [20220208 Sandbox LAND](#20220208-sandbox-land---access-control)
+
+[20220208 Superfluid](#20220208-superfluid---forged-ctx)
 
 [20220205 Meter](#20220205-Meter---bridge)
 
@@ -3104,3 +3114,75 @@ https://medium.com/zengo/without-permit-multichains-exploit-explained-8417e8c163
 https://twitter.com/PeckShieldAlert/status/1483363515411099651
 
 https://etherscan.io/tx/0xe50ed602bd916fc304d53c4fed236698b71691a95774ff0aeeb74b699c6227f7
+
+---
+
+### 20221004 Sovryn - Cross-contract ERC777 reentrancy
+
+Testing
+
+```sh
+forge test --contracts ./src/test/2022-10/Sovryn_exp.sol -vv
+```
+
+#### Contract
+
+[Sovryn_exp.sol](../../src/test/2022-10/Sovryn_exp.sol)
+
+---
+
+### 20220513 Blizz Finance - Outdated LUNA oracle
+
+Testing
+
+```sh
+forge test --contracts ./src/test/2022-05/BlizzFinance_exp.sol -vv
+```
+
+#### Contract
+
+[BlizzFinance_exp.sol](../../src/test/2022-05/BlizzFinance_exp.sol)
+
+---
+
+### 20220402 Inverse Finance Frontier - Price oracle manipulation
+
+Testing
+
+```sh
+forge test --contracts ./src/test/2022-04/InverseFinanceFrontier_exp.sol -vv
+```
+
+#### Contract
+
+[InverseFinanceFrontier_exp.sol](../../src/test/2022-04/InverseFinanceFrontier_exp.sol)
+
+---
+
+### 20220331 Ola Finance - ERC677 cross-market reentrancy
+
+The active reproduction compiles, but requires a Fuse archive RPC that serves state at block 16,257,352.
+
+Testing
+
+```sh
+forge test --contracts ./src/test/2022-03/OlaFinance_exp.sol -vv
+```
+
+#### Contract
+
+[OlaFinance_exp.sol](../../src/test/2022-03/OlaFinance_exp.sol)
+
+---
+
+### 20220208 Superfluid - Forged ctx
+
+Testing
+
+```sh
+forge test --contracts ./src/test/2022-02/Superfluid_exp.sol -vv
+```
+
+#### Contract
+
+[Superfluid_exp.sol](../../src/test/2022-02/Superfluid_exp.sol)
